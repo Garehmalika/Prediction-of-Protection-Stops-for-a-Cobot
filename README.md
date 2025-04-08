@@ -35,10 +35,10 @@ pip install tensorflow scikit-learn numpy pandas matplotlib seaborn flask
 
 ## Installation
 
-1. Clonez le dépôt depuis GitHub ou GitLab :
+1. Clonez le dépôt depuis GitHub:
    
    ```bash
-   git clone [https://github.com/votre-utilisateur/projet-cobot-ur3.git](https://github.com/Garehmalika/Prediction-of-Protection-Stops-for-a-Cobot.git)
+   git clone [[https://github.com/votre-utilisateur/projet-cobot-ur3.git](https://github.com/Garehmalika/Prediction-of-Protection-Stops-for-a-Cobot.git)](https://github.com/Garehmalika/Prediction-of-Protection-Stops-for-a-Cobot.git)
    cd projet-cobot-ur3
    ```
 
