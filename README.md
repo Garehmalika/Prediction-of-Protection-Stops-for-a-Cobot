@@ -120,7 +120,7 @@ Les performances des différents modèles sont comparées et analysées pour dé
 Le projet est organisé comme suit :
 
 ```
-/project-root
+/project-IA
     /data                  # Dossier contenant le dataset "UR3 CobotOps"
     /models                # Dossier contenant les modèles LSTM, RNN, SVM, GRU, Transformer
     /api                   # Code de l'API Flask pour le déploiement
