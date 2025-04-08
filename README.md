@@ -102,7 +102,7 @@ Un taux de dropout de 20% est appliqué après la normalisation pour éviter le 
 
 Séquences d'entrée : 10
 
-#SVM (Support Vector Machine)
+# SVM (Support Vector Machine)
 Le modèle SVM a été configuré avec les hyperparamètres suivants :
 
 Kernel : Linear (Le noyau linéaire est utilisé pour classifier les données).
@@ -112,6 +112,11 @@ Poids de classe : Balanced (Le modèle utilise l'option class_weight='balanced' 
 Probabilité : True (Active le calcul des probabilités pour la courbe ROC).
 
 Optimiseur : Aucun nécessaire, car SVM utilise un algorithme interne pour l'optimisation
+
+# Comparaison des modèles
+
+LSTM a montré une meilleure capacité à capturer des dépendances à long terme en comparaison avec les autres modéles, mais il est plus coûteux en termes de ressources computationnelles.
+
 
 ## Prérequis
 
