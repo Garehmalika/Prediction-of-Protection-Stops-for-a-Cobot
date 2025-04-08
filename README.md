@@ -1,3 +1,4 @@
+# Par : GAREH Malika et BAMMAD Ihsane
 # Prédiction des Arrêts de Protection d’un Cobot UR3
 
 ## Introduction
@@ -6,9 +7,8 @@ Ce projet est axé sur la prédiction des arrêts de protection (protective stop
 
 Le projet fait partie d'un projet de maintenance prédictive, visant à éviter les arrêts non planifiés des équipements dans un environnement industriel.
 
-## Objectifs du Projet
+## Méthodologie Adoptée
 
-Les objectifs du projet incluent :
 1. **Prétraitement des données** : Nettoyer et transformer les données brutes issues du dataset "UR3 CobotOps" pour les rendre compatibles avec les modèles d’apprentissage automatique.
 2. **Modélisation** :
    - Entraîner plusieurs modèles d'apprentissage automatique (LSTM, GRU, RNN, SVM, Transformer) pour prédire les arrêts de protection du cobot.
@@ -16,6 +16,102 @@ Les objectifs du projet incluent :
 3. **Optimisation des hyperparamètres** : Tester et ajuster les hyperparamètres pour améliorer les performances des modèles.
 4. **Déploiement du modèle** : Intégrer le modèle dans une API **Flask** permettant de faire des prédictions via une requête HTTP.
 5. **Conteneurisation** : Dockeriser l’application Flask pour faciliter son déploiement en environnement de production.
+## Hyperparamètres Testés
+
+# LSTM (Long Short-Term Memory)
+Le modèle LSTM a été configuré avec les hyperparamètres suivants :
+
+Nombre de couches : 1 (Le modèle LSTM utilisé est composé d'une seule couche LSTM, contrairement à la version à deux couches mentionnée dans les tests initiaux).
+
+Nombre de neurones par couche : 50 (Dans le code, la couche LSTM contient 50 neurones).
+
+Activation : ReLU (La fonction d'activation utilisée pour la couche LSTM est ReLU, bien que tanh soit la fonction d'activation par défaut pour les LSTM).
+
+Optimiseur : Adam (L'optimiseur Adam est utilisé pour entraîner le modèle).
+
+Fonction de perte : Binary Crossentropy (La fonction de perte utilisée pour la classification binaire).
+
+Batch Size : 32 (La taille des lots utilisée dans le générateur de séries temporelles pour l'entraînement et les tests).
+
+Séquences d'entrée : 10 (Le modèle est alimenté avec des séquences de 10 pas de temps pour chaque exemple).
+
+# GRU (Gated Recurrent Units)
+
+Nombre de couches : 2
+
+Nombre de neurones par couche : 32
+
+La couche GRU contient 32 neurones, ce qui est un compromis entre la complexité du modèle et sa capacité à apprendre les séquences temporelles.
+
+Activation : Par défaut, l'activation de la couche GRU est tanh, mais ici la couche GRU est utilisée avec Bidirectional, ce qui permet au modèle d'exploiter les informations à la fois dans le passé et dans le futur d'une séquence.
+
+Optimiseur : Adam
+
+Fonction de perte : Binary Crossentropy
+
+Comme il s'agit d'une tâche de classification binaire (prédire si un arrêt de protection va se produire), la fonction de perte utilisée est binary_crossentropy, adaptée pour les problèmes de classification binaire.
+
+Batch Size : 32
+
+# RNN (Recurrent Neural Network)
+Le modèle RNN a été configuré avec les hyperparamètres suivants :
+
+Nombre de couches : 1
+
+Le modèle RNN est composé d'une seule couche SimpleRNN. Cette couche est utilisée pour capturer les dépendances temporelles dans les données.
+
+Nombre de neurones par couche : 64
+
+La couche SimpleRNN contient 64 neurones, ce qui permet au modèle d'apprendre les relations temporelles dans les séquences de données.
+
+Activation : tanh (Par défaut pour la couche SimpleRNN, bien que cela ne soit pas explicitement précisé, c'est la fonction d'activation utilisée dans les réseaux RNN de Keras).
+
+Optimiseur : Adam
+
+Fonction de perte : Binary Crossentropy
+
+Batch Size : 32
+
+Dropout : 0.2
+
+Une couche Dropout est ajoutée après la couche RNN pour éviter le sur-apprentissage (overfitting). Cela permet de "désactiver" de manière aléatoire 20% des neurones pendant l'entraînement.
+
+Séquences d'entrée : 10
+
+# Transformer
+
+Nombre de têtes d'attention : 4
+
+Le modèle utilise 4 têtes d'attention dans la couche MultiHeadAttention. Cela permet au modèle de se concentrer sur différentes parties de la séquence d'entrée de manière parallèle, capturant ainsi plusieurs aspects des dépendances temporelles.
+
+Dimension des clés et des valeurs (key_dim) : 64
+
+La dimension des clés et des valeurs est fixée à 64.
+
+Optimiseur : Adam
+
+Fonction de perte : Binary Crossentropy
+
+La binary_crossentropy est utilisée comme fonction de perte, adaptée pour des tâches de classification binaire où l'objectif est de prédire une sortie de type 0 ou 1.
+
+Batch Size : 32
+
+Dropout : 0.2
+
+Un taux de dropout de 20% est appliqué après la normalisation pour éviter le sur-apprentissage (overfitting) du modèle.
+
+Séquences d'entrée : 10
+
+#SVM (Support Vector Machine)
+Le modèle SVM a été configuré avec les hyperparamètres suivants :
+
+Kernel : Linear (Le noyau linéaire est utilisé pour classifier les données).
+
+Poids de classe : Balanced (Le modèle utilise l'option class_weight='balanced' pour gérer les classes déséquilibrées).
+
+Probabilité : True (Active le calcul des probabilités pour la courbe ROC).
+
+Optimiseur : Aucun nécessaire, car SVM utilise un algorithme interne pour l'optimisation
 
 ## Prérequis
 
