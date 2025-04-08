@@ -137,5 +137,3 @@ Le projet est organisé comme suit :
 
 Ce projet vise à développer un modèle d'intelligence artificielle pour prédire les arrêts de protection d’un cobot en utilisant plusieurs approches d'apprentissage automatique et deep learning. L’application est déployée via une API Flask et conteneurisée avec Docker pour une utilisation en production.
 
-Si vous avez des questions ou des problèmes avec l'exécution du projet, n'hésitez pas à ouvrir une issue ou à me contacter.
-
