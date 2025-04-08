@@ -88,15 +88,10 @@ Le projet inclut également une API **Flask** permettant de charger un modèle e
 
 ### Conteneurisation avec Docker
 
-Pour déployer l’application en environnement de production, l’application Flask est conteneurisée avec **Docker**. Voici les étapes pour construire et exécuter le conteneur Docker :
+Pour déployer l’application en environnement de production, l’application Flask est conteneurisée avec **Docker**. Voici les étapes pour exécuter le conteneur Docker :
 
-1. **Construisez l'image Docker** :
 
-   ```bash
-   docker build -t cobot-api .
-   ```
-
-2. **Exécutez le conteneur Docker** :
+ **Exécutez le conteneur Docker** :
 
    ```bash
    docker run -p 5000:5000 cobot-api
