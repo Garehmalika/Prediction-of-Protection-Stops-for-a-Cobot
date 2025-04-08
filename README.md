@@ -1,4 +1,4 @@
-# Par : GAREH Malika et BAMMAD Ihsane
+# Par : GAREH Malika et BAMMAD Ihssane
 # Prédiction des Arrêts de Protection d’un Cobot UR3
 
 ## Introduction
